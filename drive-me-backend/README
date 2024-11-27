@@ -1,0 +1,35 @@
+Para ver a versão do Docker
+"docker-compose -v" 
+
+Construir uma imagem docker a partir de um Dockerfile
+"docker build -t <nome_da_imagem>:<tag> <diretório>" Se não for especificada tag, a padrão será latest
+
+Rodar um contêiner Docker
+"docker run -p 8080:8080 -d <nome_da_imagem>"
+
+Parar um contêiner Docker
+"docker stop <nome_do_contêiner/id_do_contêiner>"
+
+Listar os contêineres do Docker em execução
+"docker ps -a" (-a inclui os contêineres parados)
+
+Construir uma imagem docker a partir de um arquivo docker-compose.yml
+"docker-compose up -d" (-d para ficar em segundo plano no terminal)
+
+Criar os arquivos de configuração necessários do Prisma, como prisma/schema.prisma e .env
+"npx prisma init"
+
+Cria e aplica uma migração flexível (para desenvolvimento) chamada init (normalmente a primeira migração da aplicação)
+"npx prisma prisma migrate dev --name init"
+
+Cria e aplica as migrações para um ambiente de produção
+"npx prisma prisma migrate deploy"
+
+Criar o Prisma Client, uma biblioteca que permite interagir com o banco de dados através do TS ou JS.
+"npx prisma generate"
+
+Rodar a aplicação em desenvolvimento a partir do docker-compose
+"docker-compose up app-dev -d" (-d para ficar em segundo plano no terminal)
+
+Rodar a aplicação em produção a partir do docker-compose
+"docker-compose up app-prod -d" (-d para ficar em segundo plano no terminal

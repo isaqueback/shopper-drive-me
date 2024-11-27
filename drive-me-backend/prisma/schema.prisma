@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Driver {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  rating      Decimal?
+  review      String?
+  rate_per_km Decimal
+  min_ride_km Decimal
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now()) @updatedAt
+
+  cars    Car[] // Each driver can have multiple cars
+  rides Ride[] // Each driver can have multiple rides
+
+  @@map("drivers")
+}
+
+model Car {
+  id         Int      @id @default(autoincrement())
+  name       String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+
+  driver_id Int? // Each car belongs to a single driver (optional)
+  driver    Driver? @relation(fields: [driver_id], references: [id])
+
+  @@map("cars")
+}
+
+model Customer {
+  id         String   @id
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+
+  rides Ride[] // Each customer can have multiple rides
+
+  @@map("users")
+}
+
+model Ride {
+  id          Int      @id @default(autoincrement())
+  customer_id String
+  driver_id   Int
+  origin      String
+  destination String
+  distance    Decimal
+  duration    String // example '100s'
+  cost        Decimal
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now()) @updatedAt
+
+  customer Customer @relation(fields: [customer_id], references: [id])
+  driver   Driver   @relation(fields: [driver_id], references: [id])
+
+  @@map("rides")
+}

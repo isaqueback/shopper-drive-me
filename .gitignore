@@ -1,0 +1,39 @@
+.env
+
+# === Backend ===
+./drive-me-backend/node_modules
+./drive-me-backend
+
+# === Frontend ===
+# Logs
+drive-me-frontend/logs
+drive-me-backend/logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node.js modules
+drive-me-frontend/node_modules
+drive-me-backend/node_modules
+
+# Build outputs
+drive-me-frontend/dist
+drive-me-frontend/dist-ssr
+drive-me-backend/dist
+
+# Local environment files
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
