@@ -7,7 +7,13 @@ WORKDIR /app
 # Copie os arquivos do frontend para o container
 COPY package*.json ./
 COPY tsconfig.json ./
+COPY tsconfig.app.json ./
+COPY tsconfig.node.json ./
+COPY tailwind.config.js ./
+COPY postcss.config.js ./
+
 COPY vite.config.ts ./
+COPY index.html ./
 COPY src ./src
 COPY public ./public
 

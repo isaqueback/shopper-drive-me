@@ -8,7 +8,7 @@
     "build": "tsup ./src --out-dir build",
     "dev": "cross-env NODE_ENV=development npm run seed && tsx watch ./src/server.ts",
     "seed": "tsx prisma/seeds/create-drivers.ts && tsx prisma/seeds/create-cars.ts",
-    "start": "cross-env NODE_ENV=production npm run seed && node ./build/server.js",
+    "start": "cross-env NODE_ENV=production node ./build/server.js",
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix"
   },

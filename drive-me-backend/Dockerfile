@@ -16,8 +16,11 @@ RUN npm install
 # Compile o TypeScript
 RUN npm run build
 
+# Gere o cliente Prisma
+RUN npx prisma generate
+
 # Exponha a porta do backend
 EXPOSE 8080
 
 # Comando para rodar o backend
-CMD ["npm", "run", "start"]
+CMD ["sh", "-c", "npx prisma migrate deploy && npm run seed && npm run start"]
