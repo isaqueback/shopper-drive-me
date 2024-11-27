@@ -1,8 +1,8 @@
 .env
 
 # === Backend ===
-./drive-me-backend/node_modules
-./drive-me-backend/build
+drive-me-backend/node_modules/
+drive-me-backend/build/
 
 # === Frontend ===
 # Logs
