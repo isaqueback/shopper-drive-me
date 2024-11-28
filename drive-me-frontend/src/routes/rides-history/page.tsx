@@ -17,7 +17,6 @@ const ridesHistorySchema = z.object({
 })
 
 type RidesHistorySchema = z.infer<typeof ridesHistorySchema>
-
 interface FormattedRide {
     date: Date
     destination: string

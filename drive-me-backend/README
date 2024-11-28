@@ -20,7 +20,7 @@ Criar os arquivos de configuração necessários do Prisma, como prisma/schema.p
 "npx prisma init"
 
 Cria e aplica uma migração flexível (para desenvolvimento) chamada init (normalmente a primeira migração da aplicação)
-"npx prisma prisma migrate dev --name init"
+"npx prisma migrate dev --name init"
 
 Cria e aplica as migrações para um ambiente de produção
 "npx prisma prisma migrate deploy"

@@ -1,6 +1,10 @@
 # Use uma imagem base do Node.js
 FROM node:alpine
 
+# Dockerfile
+ARG GOOGLE_API_KEY
+ENV VITE_GOOGLE_API_KEY=$GOOGLE_API_KEY
+
 # Defina o diretório de trabalho no container
 WORKDIR /app
 

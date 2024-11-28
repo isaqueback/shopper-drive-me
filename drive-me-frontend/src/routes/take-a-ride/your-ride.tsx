@@ -5,7 +5,7 @@ import { RideContext } from "../../contexts/ride-context"
 export function YourRide() {
     const { estimate } = useContext(RideContext)
 
-    const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?size=600x300&markers=color:red%7Clabel:A%7C${estimate?.origin.latitude},${estimate?.origin.longitude}&markers=color:blue%7Clabel:B%7C${estimate?.destination.latitude},${estimate?.destination.longitude}&key=AIzaSyDXH1Zg4Qdu26cLimzDRFEVKzuIQriXTN4`
+    const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?size=600x300&markers=color:red%7Clabel:A%7C${estimate?.origin.latitude},${estimate?.origin.longitude}&markers=color:blue%7Clabel:B%7C${estimate?.destination.latitude},${estimate?.destination.longitude}&key=${import.meta.env.VITE_GOOGLE_API_KEY}`
     return (
         <div className="border h-72 bg-neutral-50 border-neutral-300 rounded-lg shadow-sm flex flex-col flex-1 overflow-hidden">
             <h2 className="font-medium border-b border-neutral-300 min-h-14 px-2 flex items-center text-neutral-800">Seu percurso</h2>
